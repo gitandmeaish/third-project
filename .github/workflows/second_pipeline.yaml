@@ -1,0 +1,14 @@
+name: Deploy Application
+on:   
+  issues:
+    types: [opened]
+jobs: 
+  output-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+      - name: Output GitHub event payload
+        run: echo "${{ toJson(github.event) }}"
+
+       
